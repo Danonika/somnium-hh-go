@@ -42,3 +42,11 @@ func (jm *JobModule) UpdateJob(ctx context.Context, req *domain.UpdateJobRequest
 func (jm *JobModule) ListJobs(ctx context.Context) ([]domain.JobInfo, error) {
 	return jm.db.ListJobs(ctx)
 }
+
+func (jm *JobModule) ApplyJob(ctx context.Context, req *domain.ApplyRequest) error {
+	return jm.db.ApplyJob(ctx, req)
+}
+
+func (jm *JobModule) GetAppliedJobs(ctx context.Context, req *domain.ApplyHistoryRequest) ([]domain.JobInfo, error) {
+	return jm.db.GetAppliedJobs(ctx, req)
+}
