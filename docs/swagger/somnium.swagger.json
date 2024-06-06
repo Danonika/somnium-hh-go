@@ -1,0 +1,747 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Somnium System",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Danonika"
+    }
+  },
+  "tags": [
+    {
+      "name": "SomniumService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/signin": {
+      "post": {
+        "summary": "Authentication",
+        "operationId": "SomniumService_SignIn",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SignInResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SignInRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "operationId": "SomniumService_SignUp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SignUpResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SignUpRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/job/add": {
+      "post": {
+        "operationId": "SomniumService_AddJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddJobResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddJobRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/job/apply": {
+      "post": {
+        "operationId": "SomniumService_Apply",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ApplyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/job/remove/{JobID}": {
+      "delete": {
+        "operationId": "SomniumService_DeleteJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "JobID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/job/switch/{JobID}": {
+      "get": {
+        "operationId": "SomniumService_JobSwitcher",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "JobID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/job/update": {
+      "patch": {
+        "operationId": "SomniumService_UpdateJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateJobRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/job/{JobID}": {
+      "get": {
+        "operationId": "SomniumService_GetJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetJobResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "JobID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/jobs": {
+      "get": {
+        "operationId": "SomniumService_ListJob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListJobResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/skill/add": {
+      "post": {
+        "summary": "Skills",
+        "operationId": "SomniumService_AddSkill",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddSkillRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/skills": {
+      "get": {
+        "operationId": "SomniumService_SkillPool",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SkillPoolResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/user/update": {
+      "patch": {
+        "operationId": "SomniumService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/user/{UserID}": {
+      "get": {
+        "summary": "UserInfo",
+        "operationId": "SomniumService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "UserID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    },
+    "/user/{UserID}/history": {
+      "get": {
+        "operationId": "SomniumService_ApplyHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ApplyHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "UserID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SomniumService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1AddJobRequest": {
+      "type": "object",
+      "properties": {
+        "Title": {
+          "type": "string"
+        },
+        "Salary": {
+          "type": "string"
+        },
+        "Category": {
+          "type": "string"
+        },
+        "Descr": {
+          "type": "string"
+        },
+        "Location": {
+          "type": "string"
+        },
+        "ContactNum": {
+          "type": "string"
+        },
+        "ContactEmai": {
+          "type": "string"
+        },
+        "Expiry": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Status": {
+          "type": "string"
+        }
+      }
+    },
+    "v1AddJobResponse": {
+      "type": "object",
+      "properties": {
+        "JobID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1AddSkillRequest": {
+      "type": "object",
+      "properties": {
+        "Skill": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ApplyHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1JobInfo"
+          }
+        }
+      }
+    },
+    "v1ApplyRequest": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "type": "string"
+        },
+        "JobID": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetJobResponse": {
+      "type": "object",
+      "properties": {
+        "JobInfo": {
+          "$ref": "#/definitions/v1JobInfo"
+        }
+      }
+    },
+    "v1GetUserResponse": {
+      "type": "object",
+      "properties": {
+        "UserInfo": {
+          "$ref": "#/definitions/v1UserInfo"
+        }
+      }
+    },
+    "v1JobInfo": {
+      "type": "object",
+      "properties": {
+        "JobID": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Salary": {
+          "type": "string"
+        },
+        "Category": {
+          "type": "string"
+        },
+        "Descr": {
+          "type": "string"
+        },
+        "Location": {
+          "type": "string"
+        },
+        "ContactNum": {
+          "type": "string"
+        },
+        "ContactEmail": {
+          "type": "string"
+        },
+        "Date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Expiry": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1ListJobResponse": {
+      "type": "object",
+      "properties": {
+        "Jobs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1JobInfo"
+          }
+        }
+      }
+    },
+    "v1SignInRequest": {
+      "type": "object",
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SignInResponse": {
+      "type": "object",
+      "properties": {
+        "AccessToken": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SignUpRequest": {
+      "type": "object",
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SignUpResponse": {
+      "type": "object",
+      "properties": {
+        "AccessToken": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkillPoolResponse": {
+      "type": "object",
+      "properties": {
+        "Skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1UpdateJobRequest": {
+      "type": "object",
+      "properties": {
+        "JobID": {
+          "type": "string"
+        },
+        "JobInfo": {
+          "$ref": "#/definitions/v1JobInfo"
+        }
+      }
+    },
+    "v1UpdateUserRequest": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "type": "string"
+        },
+        "UserInfo": {
+          "$ref": "#/definitions/v1UserInfo"
+        }
+      }
+    },
+    "v1UserInfo": {
+      "type": "object",
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ContactNum": {
+          "type": "string"
+        },
+        "ResumeTitle": {
+          "type": "string"
+        },
+        "ResumeLink": {
+          "type": "string"
+        },
+        "Skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Define the message types"
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "description": "Authentication token, prefixed by Bearer",
+      "name": "authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
