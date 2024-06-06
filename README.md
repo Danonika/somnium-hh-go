@@ -33,6 +33,10 @@ The project is structured into several packages:
 - `POST /auth/signin`: Sign in with email and password.
 - `POST /auth/signup`: Sign up with email and password.
 
+### Users
+- `GET /user/{UserID}: Get user details by user ID.
+- `PATCH /user/update: Update user details.
+
 ### Jobs
 
 - `GET /jobs`: List all jobs.
@@ -42,6 +46,12 @@ The project is structured into several packages:
 - `DELETE /job/delete/{id}`: Delete a job by ID.
 - `POST /job/apply`: Apply for a job.
 - `GET /user/{userID}/history`: Get job application history for a user.
+- `GET /user`: List all jobs.
+- `GET /job/{id}`: Get details of a job by ID.
+
+### Skills
+- `POST /skill/add: Add a new skill.
+- `GET /skills: Get a list of all skills.
 
 ### Job Status Switcher
 
